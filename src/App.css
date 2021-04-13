@@ -36,3 +36,45 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: goldenrod;
+}
+
+
+.bookBarn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem;
+
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookBarn .book img {
+  height: 150px;
+}
+
+#root {
+  
+  background: tan;
+
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: goldenrod;
+  
+}

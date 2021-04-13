@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+import React, { Component} from 'react'
+import Stepper from './Stepper'
 import './App.css';
+import SwitchView from './SwitchView';
+import BookBarn from './BookBarn';
+import Footer from './Footer';
+import Header from './Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  constructor(){
+    super();
+
+    this.state = {
+      books: []
+    
+    }
+  }
+ 
+  componentDidMount(){
+    fetch('https://raw.githubusercontent.com/benoitvallon/100-best-books/master/books.json')
+    .then(response => response.json())
+    .then(results =>{
+
+      this.setState({
+        books: results
+      })
+
+    })
+  }
+ 
+  render() {
+
+    return (
+      <div>
+        <Header />
+        <BookBarn books = {this.state.books} />
+        {/* <Stepper /> */}
+        {/* <SwitchView /> */}
+        <Footer />
+      </div>
+    )
+  }
 }
 
 export default App;
